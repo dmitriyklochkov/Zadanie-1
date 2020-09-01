@@ -1,4 +1,4 @@
-import java.util.*;
+iimport java.util.*;
 import java.io.*;
 import java.math.*;
 
@@ -27,19 +27,21 @@ public class Main {
         int i = 0;
         int d = 1;
 
-        while (i<(N-1)){
-            if(((a[i+d]-a[i])<=R)&& ((i+d)< (N-1))) d++;
+        while (i< (N-1)){
 
-            else {  k++;}
-            if (((a[i+d]-a[i])<=(2*R))&& ((i+d)< (N-1))) d++;
+            if ((a[i+d]-a[i])>R) {k++;i++;}
             else {
-                //   if(((a[i+d]-a[i])>(2*R))&& ((i+d)== (N-1)))  k++;
-                //       if(((a[i+d]-a[i])>(2*R))&& ((i+d)<(N-1))) {
-                i+=d; d=1; }
 
-            //          }
+                while ((i+d)<= (N-1)){
+                    if((a[i+d]-a[i])>(2*R)) {i+=d; d=1; k++;break;}
+                    else {
+                        d++;if ((i+d)> (N-1)) {i=i+d-1; d=1;break;}
+                    }
+                }
+
+            }
+
         }
-        // if((a[N-1]-a[N-2])>R)  k++;
 
 
 
